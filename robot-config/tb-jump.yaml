@@ -47,11 +47,11 @@ devices:
     jump_host:
         connections:
             cli:
-                ip: 9.45.125.31
+                ip: 172.16.101.1
                 port: 22
                 protocol: ssh
         credentials:
             default:
-                username: chan1210
+                username: achaa
         os: linux
         type: linux
