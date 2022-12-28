@@ -1,0 +1,57 @@
+testbed:
+    name: AchaA Robot
+    credentials:
+        default:
+            username: '%ENV{PYATS_DEVICE_USERNAME}'
+            password: '%ENV{PYATS_DEVICE_PASSWORD}'
+        enable:
+            password: '%ENV{PYATS_DEVICE_PASSWORD}'
+        line:
+            password: '%ENV{PYATS_DEVICE_PASSWORD}'
+        servers:
+            username: '%ENV{PYATS_LINUX_USERNAME}'
+            password: '%ENV{PYATS_LINUX_PASSWORD}'
+devices:
+    DALLAS:
+        alias: DAL
+        connections:
+            ssh:
+                ip: 172.16.101.74
+                protocol: ssh
+                proxy: jump_host
+        custom:
+            abstraction:
+                order:
+                - os
+                - platform
+        os: iosxe
+        platform: iosxe
+        type: CSR1000V
+
+    NEWYORK:
+        alias: NY
+        connections:
+            ssh:
+                ip: 172.16.101.75
+                protocol: ssh
+                proxy: jump_host
+        custom:
+            abstraction:
+                order:
+                - os
+                - platform
+        os: iosxe
+        platform: iosxe
+        type: CSR1000V
+
+    jump_host:
+        connections:
+            cli:
+                ip: 9.45.125.31
+                port: 22
+                protocol: ssh
+        credentials:
+            default:
+                username: chan1210
+        os: linux
+        type: linux
